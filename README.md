@@ -1,2 +1,2 @@
-# bazosbot
-Python bot for scouting items on bazos.sk  (item cat + prize range + fast refresh)
+# BazosBOT
+Python bot for scouting specific items on market platform bazos.sk 
