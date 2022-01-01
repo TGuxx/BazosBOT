@@ -1,2 +1,2 @@
 # BazosBOT
-Python bot for scouting specific items on market platform bazos.sk 
+Python bot for scouting GPUs on market platform bazos.sk 
