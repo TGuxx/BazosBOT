@@ -7,13 +7,11 @@ import smtplib
 counter = 0
 tmp_list = []
 
-
 #SPACER
 def clear_line():
     for i in range(1,5):
         print('')
-  
-                
+           
 print('************************************************************')
 print('* ____           __________   _____    ____   ____ _______ *')
 print('*|  _ \   /\    |___  / __ \ / ____|  |  _ \ / __ \__   __|*')
@@ -33,7 +31,6 @@ refresh = input('REFRESH (secs/enter=60s): ')
 if refresh == '':   
     refresh = 60
     
-    
 alert_opt = input("Do you wish to get email alerts?  (y/n): ")
 
 if (alert_opt == 'y') or (alert_opt == 'Y'):
@@ -42,7 +39,6 @@ if (alert_opt == 'y') or (alert_opt == 'Y'):
     
 else:
     pass
-
 
 component = 'graficka';
 cena_od = input('CENA OD: ')
@@ -53,8 +49,6 @@ baseurl_test = "https://pc.bazos.sk/"+component+"/?hledat=&rubriky=pc&hlokalita=
 
 #EMAIL SENDING
 def send_alert():
-    
-
     mail = smtplib.SMTP('smtp.gmail.com',587)
     mail.ehlo()
     mail.starttls()
@@ -63,17 +57,14 @@ def send_alert():
     mail.close()   
     print("******** EMAIL WAS SENT ********")
     
-
 #HEADERS
 headers = {   
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
     }
 
-
 alerts = 0
 
 while True:
-    
     clear_line() 
     GPU_list = []
     counter += 1
@@ -99,26 +90,21 @@ while True:
                      
             'COMPONENT':name,
             'date':date,
-            'CENA':price,
-                     
+            'CENA':price,       
             }
         
         GPU_list.append(GPU)
         
     if GPU_list != tmp_list: 
-        
         if (alert_opt == 'y') or (alert_opt == 'Y'):
-            
              if (alerts == 0):
       
                 ALERT = "BAZOSBOT activated and WORKING!"    
                 send_alert()                
              else:
-                 
                  ALERT = "Market change detected!"             
                  alerts += 1
                  send_alert()
-      
       
     tmp_list = GPU_list
  
@@ -128,5 +114,4 @@ while True:
     print(df)
     print()
     print(65*'*')
-    
     time.sleep(int(refresh))     
